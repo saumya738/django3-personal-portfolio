@@ -1,0 +1,29 @@
+{% extends 'portfolio/base.html' %}
+{% block content %}
+    <h2 style="color:#ff6666"><u> Saumya's Portfolio<u></h2>
+    {% load static %}
+    <br>
+    <center>
+    <img src ="{% static 'portfolio/Photo.jpg'%}" text-align="center">
+    </center>
+    <br>
+    <br>
+    {% for project in projects %}
+    <br>
+    <br>
+    {{ project.title }}
+    <br>
+    <br>
+    {{ project.Description }}
+    <br>
+    <br>
+    <img src="{{ project.image.url }}" height="250" ,width="250">
+    <br>
+    <br>
+    {% if project.url%}
+    <a href={{project.url}}>LINK</a>
+    {%endif%}
+    {% endfor %}
+
+
+  {% endblock %}
